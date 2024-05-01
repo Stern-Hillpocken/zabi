@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "name": "",
+        "owner": "",
+        "left": {
+            "cost": 0,
+            "effect": "blabla"
+        },
+        "right": {
+            "cost": 0,
+            "effect": "blabla"
+        }
+    }
+]
