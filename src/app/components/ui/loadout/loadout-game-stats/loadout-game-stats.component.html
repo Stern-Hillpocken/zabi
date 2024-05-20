@@ -1,0 +1,29 @@
+<div>
+    <div>
+        <button
+            (click)="setStep(3)"
+            [ngClass]="gameState.maxStep === 3 ? 'selected' : ''"
+            >
+            {{gameState.language == "en" ? "Short game" : "Partie rapide"}} (X min)
+        </button>
+        <button
+            (click)="setStep(5)"
+            [ngClass]="gameState.maxStep === 5 ? 'selected' : ''"
+            >
+            {{gameState.language == "en" ? "Normal game" : "Partie classique"}} (X min)
+        </button>
+        <button
+            (click)="setStep(7)"
+            [ngClass]="gameState.maxStep === 7 ? 'selected' : ''"
+            >
+            {{gameState.language == "en" ? "Long game" : "Partie longue"}} (X min)
+        </button>
+        <button (click)="removeStep()">-</button>
+        <span>{{gameState.maxStep}}</span>
+        <button (click)="addStep()">+</button>
+    </div>
+    <div>
+        <button [disabled]="!canGameRun()" routerLink="/game">Run</button>
+        <button (click)="seeInConsole()">See</button>
+    </div>
+</div>

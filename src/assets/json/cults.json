@@ -1,0 +1,10 @@
+[
+    {
+        "name": {"en": "The Tip", "fr": "La Pointe"},
+        "maxBelievers": 42
+    },
+    {
+        "name": {"en": "The Toxic torch", "fr": "La Flamme toxique"},
+        "maxBelievers": 33
+    }
+]

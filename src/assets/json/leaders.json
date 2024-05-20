@@ -1,0 +1,10 @@
+[
+    {
+        "name": {"en": "Embrose, First signature", "fr": "Embrose, Première signature"},
+        "cards": ["Player Card", "Player Card", "Player Card"]
+    },
+    {
+        "name": {"en": "Harafi, ...", "fr": "Harafi, ..."},
+        "cards": ["Player Card", "Player Card"]
+    }
+]

@@ -1,11 +1,10 @@
-import { CardChoice } from "./card-choice.model";
+import { Choice } from "./choice.model";
+import { MultiLanguage } from "./multi-language.model";
 
 export class Card {
     constructor(
-        public id: number,
-        public name: string,
+        public name: MultiLanguage,
         public owner: "player" | "enemy",
-        public left: CardChoice,
-        public right: CardChoice
+        public choices: Choice[]
     ){}
 }

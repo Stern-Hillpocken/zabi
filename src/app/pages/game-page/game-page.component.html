@@ -1,1 +1,7 @@
-<app-game></app-game>
+<app-game
+    *ngIf="gameState.enemy.name.en !== ''"
+></app-game>
+
+<app-map
+    *ngIf="gameState.enemy.name.en === ''"
+></app-map>

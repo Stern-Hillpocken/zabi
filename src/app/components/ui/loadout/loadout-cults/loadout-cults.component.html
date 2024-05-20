@@ -1,0 +1,10 @@
+<div>
+    <button
+        *ngFor="let cult of cults"
+        (click)="selectCult(cult.name.en)"
+        [ngClass]="cult.name.en === gameState.cult.name.en ? 'selected' : ''"
+        >
+            {{ cult.name[gameState.language] }}<br>
+            {{ gameState.language === "en" ? "starting believers:" : "croyants de départ :" }} {{ cult.maxBelievers }}
+    </button>
+</div>

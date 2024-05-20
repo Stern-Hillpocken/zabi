@@ -1,0 +1,16 @@
+ <div class="card">
+    <h1>{{ card.name[language] }}</h1>
+    <div class="choices">
+        <div
+            *ngFor="let choice of card.choices"
+            class="choice"
+        >
+            <div class="cost">{{ choice.cost }}</div>
+            <div
+                *ngFor="let action of choice.effect; let i = index"
+            >
+                {{ choice.value[i] > 1 ? choice.value[i] : '' }}<app-svg-display [path]="choice.effect[i]"></app-svg-display>
+            </div>
+        </div>
+    </div>
+</div>

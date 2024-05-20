@@ -1,0 +1,10 @@
+[
+    {
+        "name": {"en": "Reigan, the suspicious", "fr": "Reigan, le suspicieux"},
+        "cards": ["Enemy Card"]
+    },
+    {
+        "name": {"en": "Sylvas, foundry worker", "fr": "Sylas, ouvrier de l'usine"},
+        "cards": ["Enemy Card"]
+    }
+]

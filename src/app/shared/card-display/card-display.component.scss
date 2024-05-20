@@ -1,0 +1,19 @@
+.card {
+    border: 2px dotted black;
+}
+.choices {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
+
+.choice {
+    background-color: white;
+    padding: 4px;
+    margin: 2px;
+    width: 40%;
+}
+
+.cost {
+    background-color: teal;
+}

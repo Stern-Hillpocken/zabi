@@ -1,0 +1,16 @@
+<div>
+    <button
+        *ngFor="let leader of leaders"
+        (click)="selectLeader(leader.name[gameState.language])"
+        [ngClass]="gameState.leader.name.en === leader.name[gameState.language] ? 'selected' : ''"
+    >
+        {{ leader.name[gameState.language] }}
+        <div style="display: flex; gap: 0.5em;">
+            <app-card-display
+                *ngFor="let card of leader.cards"
+                [card]="card"
+                [language]="gameState.language"
+            ></app-card-display>
+        </div>
+    </button>
+</div>
