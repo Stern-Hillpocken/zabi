@@ -1,1 +1,2 @@
-<p>map works!</p>
+<app-map-header [gameState]="gameState"></app-map-header>
+<app-map-enemy-choice [language]="gameState.language" (selectedEnemyEmitter)="onSelectedEnemyReceive($event)"></app-map-enemy-choice>

@@ -9,14 +9,21 @@ import { Component, Input } from '@angular/core';
 export class SvgDisplayComponent {
 
   @Input() path!: string;
-  @Input() size = "";
+  @Input() size: "" | "small" | "medium" = "";
+  @Input() rotate: "" | "left" | "right" = "";
+  @Input() color: string = "";
 
   d!: string;
 
   constructor(private http: HttpClient){
     this.http.get("assets/json/svg.json").subscribe((allJsonSvg: any) => {
       this.d = allJsonSvg[this.path];
-    })
+    });
   }
 
+  rotation(): string {
+    if (!this.rotate) return "";
+    let value: string = this.rotate === "left" ? "-90" : this.rotate === "right" ? "90" : "0";
+    return "rotate(" + value + ")";
+  }
 }

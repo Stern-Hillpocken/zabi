@@ -5,7 +5,7 @@
             *ngFor="let choice of card.choices"
             class="choice"
         >
-            <div class="cost">{{ choice.cost }}</div>
+            <div class="cost">{{ choice.cost }}<app-svg-display path="mana"></app-svg-display></div>
             <div
                 *ngFor="let action of choice.effect; let i = index"
             >

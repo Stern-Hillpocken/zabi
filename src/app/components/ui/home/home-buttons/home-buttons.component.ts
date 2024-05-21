@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Languages } from 'src/app/types/languages.type';
 
 @Component({
   selector: 'app-home-buttons',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-buttons.component.scss']
 })
 export class HomeButtonsComponent {
+
+  @Input() language!: Languages;
 
 }

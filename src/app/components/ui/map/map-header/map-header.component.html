@@ -1,0 +1,18 @@
+<div class="roadmap">
+    <app-svg-display path="home" size="medium"></app-svg-display>
+    <ng-container
+        *ngFor="let step of [].constructor(gameState.maxStep-1); let i = index"
+    >
+        <app-svg-display path="feet" size="small" rotate="right" [color]="i <= gameState.currentStep ? '' : 'fade'"></app-svg-display>
+        <app-svg-display path="feet" size="small" rotate="right" [color]="i <= gameState.currentStep ? '' : 'fade'"></app-svg-display>
+        <app-svg-display path="feet" size="small" rotate="right" [color]="i <= gameState.currentStep ? '' : 'fade'"></app-svg-display>
+        
+        <app-svg-display [path]="i < gameState.currentStep ? 'completed-ritual' : i === gameState.currentStep ? 'current-ritual' : 'ritual'" size="medium" [color]="i < gameState.currentStep ? '' : i === gameState.currentStep ? 'selected' : 'fade'"></app-svg-display>
+    </ng-container>
+    
+    <app-svg-display path="feet" size="small" rotate="right" [color]="gameState.currentStep === gameState.maxStep ? '' : 'fade'"></app-svg-display>
+    <app-svg-display path="feet" size="small" rotate="right" [color]="gameState.currentStep === gameState.maxStep ? '' : 'fade'"></app-svg-display>
+    <app-svg-display path="feet" size="small" rotate="right" [color]="gameState.currentStep === gameState.maxStep ? '' : 'fade'"></app-svg-display>
+    
+    <app-svg-display path="final-ritual" size="medium" [color]="gameState.currentStep === gameState.maxStep ? '' : 'fade'"></app-svg-display>
+</div>

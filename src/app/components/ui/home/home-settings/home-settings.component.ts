@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameStateService } from 'src/app/shared/game-state.service';
 
 @Component({
   selector: 'app-home-settings',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-settings.component.scss']
 })
 export class HomeSettingsComponent {
+
+  constructor(private gss: GameStateService) {}
+
+  changeLanguage() {
+    this.gss.changeLanguage();
+  }
 
 }

@@ -1,0 +1,12 @@
+<div class="enemy-choice">
+    <div
+        *ngFor="let enemy of enemies"
+        class="enemy"
+    >
+        <h1>{{ enemy.name[language] }}</h1>
+        <div>
+            <app-card-display *ngFor="let card of enemy.cards" [card]="card"></app-card-display>
+        </div>
+        <button (click)="selectEnemy(enemy.name[language])" class="big">{{ language === "en" ? "Select" : "Sélectionner" }}</button>
+    </div>
+</div>

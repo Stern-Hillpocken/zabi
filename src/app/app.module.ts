@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardDisplayComponent } from './shared/card-display/card-display.component';
 import { SvgDisplayComponent } from './shared/svg-display/svg-display.component';
 import { MapComponent } from './components/feature/map/map.component';
+import { MapHeaderComponent } from './components/ui/map/map-header/map-header.component';
+import { MapEnemyChoiceComponent } from './components/ui/map/map-enemy-choice/map-enemy-choice.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { MapComponent } from './components/feature/map/map.component';
     LoadoutGameStatsComponent,
     CardDisplayComponent,
     SvgDisplayComponent,
-    MapComponent
+    MapComponent,
+    MapHeaderComponent,
+    MapEnemyChoiceComponent
   ],
   imports: [
     BrowserModule,
