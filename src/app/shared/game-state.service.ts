@@ -16,7 +16,7 @@ import { Languages } from '../types/languages.type';
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual("", 0, 0), new Deck([], new Card(new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), "player", []), []), 0, 0));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), "player", []), []), 0, 0));
 
   private leaders!: Leader[];
   private cults!: Cult[];

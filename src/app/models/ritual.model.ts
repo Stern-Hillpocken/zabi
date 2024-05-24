@@ -1,7 +1,10 @@
+import { MultiLanguage } from "./multi-language.model";
+
 export class Ritual {
     constructor (
-        public name: string,
+        public name: MultiLanguage,
         public currentProgression: number,
-        public maxProgression: number
+        public maxProgression: number,
+        public protection: number
     ){}
 }

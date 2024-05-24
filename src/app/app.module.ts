@@ -22,6 +22,12 @@ import { SvgDisplayComponent } from './shared/svg-display/svg-display.component'
 import { MapComponent } from './components/feature/map/map.component';
 import { MapHeaderComponent } from './components/ui/map/map-header/map-header.component';
 import { MapEnemyChoiceComponent } from './components/ui/map/map-enemy-choice/map-enemy-choice.component';
+import { GameHeaderComponent } from './components/ui/game/game-header/game-header.component';
+import { GameCurrentCardComponent } from './components/ui/game/game-current-card/game-current-card.component';
+import { GameNextCardComponent } from './components/ui/game/game-next-card/game-next-card.component';
+import { GameLibraryComponent } from './components/ui/game/game-library/game-library.component';
+import { GameGraveyardComponent } from './components/ui/game/game-graveyard/game-graveyard.component';
+import { GameFooterComponent } from './components/ui/game/game-footer/game-footer.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +49,13 @@ import { MapEnemyChoiceComponent } from './components/ui/map/map-enemy-choice/ma
     SvgDisplayComponent,
     MapComponent,
     MapHeaderComponent,
-    MapEnemyChoiceComponent
+    MapEnemyChoiceComponent,
+    GameHeaderComponent,
+    GameCurrentCardComponent,
+    GameNextCardComponent,
+    GameLibraryComponent,
+    GameGraveyardComponent,
+    GameFooterComponent
   ],
   imports: [
     BrowserModule,

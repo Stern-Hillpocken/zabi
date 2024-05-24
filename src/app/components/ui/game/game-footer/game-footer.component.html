@@ -1,0 +1,6 @@
+<div>
+    <p>{{ gameState.language === "fr" ? "Guide :" : "Leader:" }} {{ gameState.leader.name[gameState.language] }}</p>
+    <p>{{ gameState.language === "fr" ? "Culte :" : "Cult:" }} {{ gameState.cult.name[gameState.language] }}</p>
+    <p>{{ gameState.cult.currentBelievers }}/{{ gameState.cult.maxBelievers }}<app-svg-display path="believer"></app-svg-display></p>
+    <p *ngIf="gameState.cult.hideout > 0">{{ gameState.cult.hideout }}<app-svg-display path="hideout"></app-svg-display></p>
+</div>

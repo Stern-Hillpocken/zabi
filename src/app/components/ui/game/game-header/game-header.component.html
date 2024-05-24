@@ -1,0 +1,6 @@
+<div>
+    <p>{{ gameState.language === "fr" ? "Ennemi :" : "Enemy:" }} {{ gameState.enemy.name[gameState.language] }}</p>
+    <p>{{ gameState.language === "fr" ? "Rituel :" : "Ritual:" }} {{ gameState.ritual.name[gameState.language] }}</p>
+    <p>{{ gameState.ritual.currentProgression }}/{{ gameState.ritual.maxProgression }}<app-svg-display path="ritual"></app-svg-display></p>
+    <p *ngIf="gameState.ritual.protection > 0">{{ gameState.ritual.protection }}<app-svg-display path="protection"></app-svg-display></p>
+</div>

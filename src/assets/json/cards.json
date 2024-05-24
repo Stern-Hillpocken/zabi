@@ -15,6 +15,21 @@
         ]
     },
     {
+        "name": {"en": "Player n2 Card", "fr": "Crte du jour"},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effect": ["mana"],
+                "value": [3]
+            },{
+                "cost": 1,
+                "effect": ["hideout", "glyph"],
+                "value": [1, 1]
+            }
+        ]
+    },
+    {
         "name": {"en": "Enemy Card", "fr": "Crt ennemi"},
         "owner": "enemy",
         "choices": [
@@ -26,6 +41,21 @@
                 "cost": 2,
                 "effect": ["ritual", "militia"],
                 "value": [4, 1]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Enemy n2 Card", "fr": "Crt ennemi"},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effect": ["protection"],
+                "value": [2]
+            },{
+                "cost": 1,
+                "effect": ["ritual", "militia"],
+                "value": [2, 2]
             }
         ]
     }
