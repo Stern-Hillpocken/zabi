@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class SvgDisplayComponent {
 
   @Input() path!: string;
-  @Input() size: "" | "small" | "medium" = "";
+  @Input() size: "small" | "medium" | "large"= "medium";
   @Input() rotate: "" | "left" | "right" = "";
   @Input() color: string = "";
 

@@ -14,6 +14,7 @@ export class GameComponent {
   constructor(private gss: GameStateService) {
     this.gss.getGameState().subscribe((gs: GameState) => {
       this.gameState = gs;
+      this.gss.initRitual();
     });
   }
 

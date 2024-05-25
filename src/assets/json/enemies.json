@@ -1,7 +1,7 @@
 [
     {
         "name": {"en": "Reigan, the suspicious", "fr": "Reigan, le suspicieux"},
-        "cards": ["Enemy Card"]
+        "cards": ["Enemy Card", "Enemy n2 Card"]
     },
     {
         "name": {"en": "Sylvas, foundry worker", "fr": "Sylas, ouvrier de l'usine"},

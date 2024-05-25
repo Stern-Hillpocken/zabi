@@ -10,6 +10,7 @@ import { Card } from '../models/card.model';
 import { MultiLanguage } from '../models/multi-language.model';
 import { HttpClient } from '@angular/common/http';
 import { Languages } from '../types/languages.type';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,16 +22,32 @@ export class GameStateService {
   private leaders!: Leader[];
   private cults!: Cult[];
   private enemies!: Enemy[];
+  private cards!: Card[]
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utils: UtilsService) {
+    this.http.get("assets/json/cards.json").subscribe((result: any) => {
+      this.cards = result;
+
+      this.http.get("assets/json/leaders.json").subscribe((result: any) => {
+        for (let l = 0; l < result.length; l++) {
+          for (let c = 0; c < result[l].cards.length; c++) {
+            result[l].cards[c] = this.convertEnglishNameToCard(result[l].cards[c]);
+          }
+        }
+        this.leaders = result;
+      });
+      this.http.get("assets/json/enemies.json").subscribe((result: any) => {
+        for (let e = 0; e < result.length; e++) {
+          for (let c = 0; c < result[e  ].cards.length; c++) {
+            result[e].cards[c] = this.convertEnglishNameToCard(result[e].cards[c]);
+          }
+        }
+        this.enemies = result;
+      });
+    });
+
     this.http.get("assets/json/cults.json").subscribe((result: any) => {
       this.cults = result;
-    });
-    this.http.get("assets/json/leaders.json").subscribe((result: any) => {
-      this.leaders = result;
-    });
-    this.http.get("assets/json/enemies.json").subscribe((result: any) => {
-      this.enemies = result;
     });
   }
 
@@ -70,6 +87,57 @@ export class GameStateService {
         this._gameState$.value.enemy.cards = jenemy.cards;
       }
     }
+  }
+
+  convertEnglishNameToCard(name: string): Card {
+    for(const card of this.cards) {
+      if (card.name.en === name) {
+        return card;
+      }
+    }
+    return new Card({"en": name+" does'nt exist!", "fr": name+" n'existe pas !"}, "enemy", []);
+  }
+
+  initRitual(): void {
+    // Add all decks in library
+    this._gameState$.value.deck.library.push(...this._gameState$.value.leader.cards);
+    this._gameState$.value.deck.library.push(...this._gameState$.value.enemy.cards);
+    this.pickCurrentAndNextCards();
+  }
+
+  pickCurrentAndNextCards(): void {
+    // Choose current card
+    const randomFirstCardIndex = this.utils.random(0, this._gameState$.value.deck.library.length-1);
+    this._gameState$.value.deck.currentCard = this._gameState$.value.deck.library[randomFirstCardIndex];
+    this._gameState$.value.deck.library.splice(randomFirstCardIndex, 1);
+    // Choose next card
+    const randomNextCardIndex = this.utils.random(0, this._gameState$.value.deck.library.length-1);
+    this._gameState$.value.deck.nextCard = this._gameState$.value.deck.library[randomNextCardIndex];
+  }
+
+  moveToNextCard(): void {
+    // Move current card to graveyard
+    this._gameState$.value.deck.graveyard.push(this._gameState$.value.deck.currentCard);
+
+    // Set next card to current card
+    if (this._gameState$.value.deck.nextCard) {
+      this._gameState$.value.deck.currentCard = this._gameState$.value.deck.nextCard;
+      this._gameState$.value.deck.currentCard = new Card({"en": "", "fr": ""}, "enemy", [])
+    } else {
+      this.shuffle();
+    }
+
+    // Choose next card
+    if (this._gameState$.value.deck.library.length > 0) {
+      const randomNextCardIndex = this.utils.random(0, this._gameState$.value.deck.library.length-1);
+      this._gameState$.value.deck.nextCard = this._gameState$.value.deck.library[randomNextCardIndex];
+    }
+  }
+
+  shuffle(): void {
+    this._gameState$.value.deck.library = this._gameState$.value.deck.graveyard;
+    this._gameState$.value.deck.graveyard = [];
+    this.pickCurrentAndNextCards();
   }
 
 }
