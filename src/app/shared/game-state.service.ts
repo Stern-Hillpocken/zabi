@@ -16,7 +16,7 @@ import { UtilsService } from './utils.service';
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
 
   private leaders!: Leader[];
   private cults!: Cult[];
@@ -94,7 +94,7 @@ export class GameStateService {
         return card;
       }
     }
-    return new Card({"en": name+" does'nt exist!", "fr": name+" n'existe pas !"}, "enemy", []);
+    return new Card({"en": name+" does'nt exist!", "fr": name+" n'existe pas !"}, new MultiLanguage("", ""), "enemy", []);
   }
 
   initRitual(): void {
@@ -128,7 +128,7 @@ export class GameStateService {
           break;
         }
       }
-      this._gameState$.value.deck.nextCard = new Card({"en": "", "fr": ""}, "empty", []);
+      this._gameState$.value.deck.nextCard = new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "empty", []);
     } else {
       this.shuffle();
     }

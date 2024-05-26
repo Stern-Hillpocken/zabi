@@ -4,6 +4,7 @@ import { MultiLanguage } from "./multi-language.model";
 export class Card {
     constructor(
         public name: MultiLanguage,
+        public flavor: MultiLanguage,
         public owner: "player" | "enemy" | "empty",
         public choices: Choice[]
     ){}

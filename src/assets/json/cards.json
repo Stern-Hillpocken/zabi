@@ -1,6 +1,7 @@
 [
     {
-        "name": {"en": "Player Card", "fr": "Crte du jour"},
+        "name": {"en": "Player Card", "fr": "Carte du jour"},
+        "flavor": {"en": "Player Flavor", "fr": "Carte flavor"},
         "owner": "player",
         "choices": [
             {
@@ -15,7 +16,8 @@
         ]
     },
     {
-        "name": {"en": "Player n2 Card", "fr": "Crte du jour"},
+        "name": {"en": "Player n2 Card", "fr": "Carte 2 jour"},
+        "flavor": {"en": "Player 2 Flavor", "fr": "Carte 2 flavor"},
         "owner": "player",
         "choices": [
             {
@@ -31,6 +33,7 @@
     },
     {
         "name": {"en": "Enemy Card", "fr": "Crt ennemi"},
+        "flavor": {"en": "Enemy Flavor", "fr": "Nmi flavor"},
         "owner": "enemy",
         "choices": [
             {
@@ -46,6 +49,7 @@
     },
     {
         "name": {"en": "Enemy n2 Card", "fr": "Crt ennemi"},
+        "flavor": {"en": "Enemy 2 Flavor", "fr": "Nmi 2 flavor"},
         "owner": "enemy",
         "choices": [
             {
