@@ -4,7 +4,7 @@ import { GameState } from 'src/app/models/game-state.model';
 @Component({
   selector: 'app-game-footer',
   templateUrl: './game-footer.component.html',
-  styleUrls: ['./game-footer.component.scss']
+  styleUrls: ['./game-footer.component.scss', '../../../feature/game/game.component.scss']
 })
 export class GameFooterComponent {
 

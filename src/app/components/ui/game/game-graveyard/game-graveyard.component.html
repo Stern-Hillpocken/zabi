@@ -1,5 +1,5 @@
 <div>
-    <button (click)="display()">{{ language === "fr" ? "Afficher le Cimetière ("+graveyard.length+")" : "Display Graveyard ("+graveyard.length+")" }}</button>
+    <button (click)="display()" style="position: relative;"><app-svg-display path="graveyard"></app-svg-display><span class="deck-length">{{ graveyard.length }}</span></button>
 </div>
 <div *ngIf="displayed">
     <app-card-display *ngFor="let card of graveyard" [card]="card"></app-card-display>

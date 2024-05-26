@@ -1,7 +1,11 @@
-<div>
-    <p>{{ gameState.mana }}<app-svg-display path="mana"></app-svg-display></p>
-    <p>{{ gameState.language === "fr" ? "Guide :" : "Leader:" }} {{ gameState.leader.name[gameState.language] }}</p>
-    <p>{{ gameState.language === "fr" ? "Culte :" : "Cult:" }} {{ gameState.cult.name[gameState.language] }}</p>
-    <p>{{ gameState.cult.currentBelievers }}/{{ gameState.cult.maxBelievers }}<app-svg-display path="believer"></app-svg-display></p>
-    <p *ngIf="gameState.cult.hideout > 0">{{ gameState.cult.hideout }}<app-svg-display path="hideout"></app-svg-display></p>
+<div class="footer">
+    <div>
+        <p>{{ gameState.language === "fr" ? "Guide :" : "Leader:" }} {{ gameState.leader.name[gameState.language] }}</p>
+        <p>{{ gameState.language === "fr" ? "Culte :" : "Cult:" }} {{ gameState.cult.name[gameState.language] }}</p>
+    </div>
+    <div style="position: relative;"><span class="mana-value">{{ gameState.mana }}</span><app-svg-display path="mana" size="large"></app-svg-display></div>
+    <div>
+        <div><span class="svg-value">{{ gameState.cult.currentBelievers }}/{{ gameState.cult.maxBelievers }}</span><app-svg-display path="believer"></app-svg-display></div>
+        <div *ngIf="gameState.cult.hideout > 0"><span class="svg-value">{{ gameState.cult.hideout }}</span><app-svg-display path="hideout"></app-svg-display></div>
+    </div>
 </div>

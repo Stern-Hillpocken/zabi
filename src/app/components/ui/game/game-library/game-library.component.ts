@@ -5,7 +5,7 @@ import { Languages } from 'src/app/types/languages.type';
 @Component({
   selector: 'app-game-library',
   templateUrl: './game-library.component.html',
-  styleUrls: ['./game-library.component.scss']
+  styleUrls: ['./game-library.component.scss', '../../../feature/game/game.component.scss']
 })
 export class GameLibraryComponent {
 

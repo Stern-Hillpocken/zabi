@@ -5,7 +5,7 @@ import { Languages } from 'src/app/types/languages.type';
 @Component({
   selector: 'app-game-graveyard',
   templateUrl: './game-graveyard.component.html',
-  styleUrls: ['./game-graveyard.component.scss']
+  styleUrls: ['./game-graveyard.component.scss', '../../../feature/game/game.component.scss']
 })
 export class GameGraveyardComponent {
 
