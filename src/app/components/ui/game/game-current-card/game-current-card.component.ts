@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
+import { Choice } from 'src/app/models/choice.model';
 
 @Component({
   selector: 'app-game-current-card',
@@ -9,5 +10,11 @@ import { Card } from 'src/app/models/card.model';
 export class GameCurrentCardComponent {
 
   @Input() currentCard!: Card;
+
+  @Output() choiceMadeEmitter: EventEmitter<Choice> = new EventEmitter();
+
+  onChoiceMadeReceive(choice: Choice): void {
+    this.choiceMadeEmitter.emit(choice);
+  }
 
 }

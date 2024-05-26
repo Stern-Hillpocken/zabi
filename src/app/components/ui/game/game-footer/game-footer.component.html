@@ -1,4 +1,5 @@
 <div>
+    <p>{{ gameState.mana }}<app-svg-display path="mana"></app-svg-display></p>
     <p>{{ gameState.language === "fr" ? "Guide :" : "Leader:" }} {{ gameState.leader.name[gameState.language] }}</p>
     <p>{{ gameState.language === "fr" ? "Culte :" : "Cult:" }} {{ gameState.cult.name[gameState.language] }}</p>
     <p>{{ gameState.cult.currentBelievers }}/{{ gameState.cult.maxBelievers }}<app-svg-display path="believer"></app-svg-display></p>

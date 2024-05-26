@@ -1,8 +1,9 @@
  <div class="card">
     <h1>{{ card.name[language] }}</h1>
     <div class="choices">
-        <div
+        <button
             *ngFor="let choice of card.choices"
+            (click)="choiceMade(choice)"
             class="choice"
         >
             <div class="cost">{{ choice.cost }}<app-svg-display path="mana"></app-svg-display></div>
@@ -11,6 +12,6 @@
             >
                 {{ choice.value[i] > 1 ? choice.value[i] : '' }}<app-svg-display [path]="choice.effect[i]"></app-svg-display>
             </div>
-        </div>
+        </button>
     </div>
 </div>

@@ -1,3 +1,6 @@
 <div>
+    <button (click)="display()">{{ language === "fr" ? "Afficher la Bibliothèque ("+library.length+")" : "Display Library ("+library.length+")" }}</button>
+</div>
+<div *ngIf="displayed">
     <app-card-display *ngFor="let card of library" [card]="card"></app-card-display>
 </div>

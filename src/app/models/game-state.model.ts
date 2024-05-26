@@ -14,6 +14,7 @@ export class GameState {
         public ritual: Ritual,
         public deck: Deck,
         public currentStep: number,
-        public maxStep: number
+        public maxStep: number,
+        public mana: number
     ){}
 }

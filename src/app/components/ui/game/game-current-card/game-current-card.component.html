@@ -1,3 +1,3 @@
 <div>
-    <app-card-display [card]="currentCard"></app-card-display>
+    <app-card-display [card]="currentCard" (choiceMadeEmitter)="onChoiceMadeReceive($event)"></app-card-display>
 </div>

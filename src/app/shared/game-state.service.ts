@@ -9,7 +9,6 @@ import { Deck } from '../models/deck.model';
 import { Card } from '../models/card.model';
 import { MultiLanguage } from '../models/multi-language.model';
 import { HttpClient } from '@angular/common/http';
-import { Languages } from '../types/languages.type';
 import { UtilsService } from './utils.service';
 
 @Injectable({
@@ -17,7 +16,7 @@ import { UtilsService } from './utils.service';
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), "player", []), []), 0, 0));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
 
   private leaders!: Leader[];
   private cults!: Cult[];
@@ -120,9 +119,16 @@ export class GameStateService {
     this._gameState$.value.deck.graveyard.push(this._gameState$.value.deck.currentCard);
 
     // Set next card to current card
-    if (this._gameState$.value.deck.nextCard) {
+    if (this._gameState$.value.deck.nextCard.name.en) {
       this._gameState$.value.deck.currentCard = this._gameState$.value.deck.nextCard;
-      this._gameState$.value.deck.currentCard = new Card({"en": "", "fr": ""}, "enemy", [])
+      // Remove it from library
+      for (let i = 0; i < this._gameState$.value.deck.library.length; i++) {
+        if (this._gameState$.value.deck.library[i] === this._gameState$.value.deck.nextCard) {
+          this._gameState$.value.deck.library.splice(i, 1);
+          break;
+        }
+      }
+      this._gameState$.value.deck.nextCard = new Card({"en": "", "fr": ""}, "empty", []);
     } else {
       this.shuffle();
     }

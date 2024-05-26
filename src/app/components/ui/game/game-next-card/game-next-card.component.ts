@@ -10,6 +10,6 @@ import { Languages } from 'src/app/types/languages.type';
 export class GameNextCardComponent {
 
   @Input() language!: Languages;
-  @Input() nextCardOwner!: "enemy" | "player";
+  @Input() nextCardOwner!: "enemy" | "player" | "empty";
 
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Choice } from 'src/app/models/choice.model';
 import { GameState } from 'src/app/models/game-state.model';
 import { GameStateService } from 'src/app/shared/game-state.service';
 
@@ -16,6 +17,10 @@ export class GameComponent {
       this.gameState = gs;
       this.gss.initRitual();
     });
+  }
+
+  onCardChoiceMadeReceive(choice: Choice): void {
+    this.gss.moveToNextCard();
   }
 
 }

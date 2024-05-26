@@ -1,6 +1,6 @@
 <div>
     <app-game-header [gameState]="gameState"></app-game-header>
-    <app-game-current-card [currentCard]="gameState.deck.currentCard"></app-game-current-card>
+    <app-game-current-card [currentCard]="gameState.deck.currentCard" (choiceMadeEmitter)="onCardChoiceMadeReceive($event)"></app-game-current-card>
     <app-game-library [library]="gameState.deck.library"></app-game-library>
     <app-game-next-card [nextCardOwner]="gameState.deck.nextCard.owner" [language]="gameState.language"></app-game-next-card>
     <app-game-graveyard [graveyard]="gameState.deck.graveyard"></app-game-graveyard>
