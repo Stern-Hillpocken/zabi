@@ -1,0 +1,17 @@
+.popups-container {
+    position: fixed;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.popup {
+    display: flex;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+
+    p {
+        padding: 0.5em;
+    }
+}

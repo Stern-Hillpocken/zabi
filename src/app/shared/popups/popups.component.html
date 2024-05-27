@@ -1,0 +1,6 @@
+<div class="popups-container">
+    <div *ngFor="let popup of popups; let i = index" class="popup">
+        <p>{{ popup.message }}</p>
+        <button (click)="close(i)"><app-svg-display path="close" size="small"></app-svg-display></button>
+    </div>
+</div>
