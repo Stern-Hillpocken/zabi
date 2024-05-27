@@ -15,9 +15,9 @@
             class="choice"
         >
             <div
-                *ngFor="let action of choice.effect; let i = index"
+                *ngFor="let action of choice.effects"
             >
-                <span class="choice-value">{{ choice.value[i] > 1 ? choice.value[i] : '' }}</span><app-svg-display [path]="choice.effect[i]"></app-svg-display>
+                <span class="choice-value">{{ action.value > 1 ? action.value : '' }}</span><app-svg-display [path]="action.keyword"></app-svg-display>
             </div>
         </button>
     </div>

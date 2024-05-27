@@ -1,7 +1,8 @@
+import { CardEffects } from "./cardEffects.model";
+
 export class Choice {
     constructor(
         public cost: number,
-        public effect: string[],
-        public value: number[]
+        public effects: CardEffects[]
     ){}
 }

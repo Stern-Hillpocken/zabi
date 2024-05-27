@@ -6,12 +6,15 @@
         "choices": [
             {
                 "cost": 0,
-                "effect": ["believer"],
-                "value": [1]
+                "effects": [
+                    {"keyword": "believer", "value": 1}
+                ]
             },{
                 "cost": 2,
-                "effect": ["hideout", "glyph"],
-                "value": [4, 1]
+                "effects": [
+                    {"keyword": "hideout", "value": 2},
+                    {"keyword": "glyph", "value": 2}
+                ]
             }
         ]
     },
@@ -22,12 +25,15 @@
         "choices": [
             {
                 "cost": 0,
-                "effect": ["mana"],
-                "value": [3]
+                "effects": [
+                    {"keyword": "mana", "value": 3}
+                ]
             },{
                 "cost": 1,
-                "effect": ["hideout", "glyph"],
-                "value": [1, 1]
+                "effects": [
+                    {"keyword": "hideout", "value": 1},
+                    {"keyword": "glyph", "value": 1}
+                ]
             }
         ]
     },
@@ -38,12 +44,15 @@
         "choices": [
             {
                 "cost": 0,
-                "effect": ["protection"],
-                "value": [1]
+                "effects": [
+                    {"keyword": "protection", "value": 1}
+                ]
             },{
                 "cost": 2,
-                "effect": ["ritual", "militia"],
-                "value": [4, 1]
+                "effects": [
+                    {"keyword": "ritual", "value": 1},
+                    {"keyword": "militia", "value": 2}
+                ]
             }
         ]
     },
@@ -54,12 +63,15 @@
         "choices": [
             {
                 "cost": 0,
-                "effect": ["protection"],
-                "value": [2]
+                "effects": [
+                    {"keyword": "protection", "value": 2},
+                    {"keyword": "ritual", "value": 3}
+                ]
             },{
                 "cost": 1,
-                "effect": ["ritual", "militia"],
-                "value": [2, 2]
+                "effects": [
+                    {"keyword": "militia", "value": 1}
+                ]
             }
         ]
     }
