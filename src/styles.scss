@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 button.big {
     width: 75%;
+    font-size: 2em;
 }

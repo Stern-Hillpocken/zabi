@@ -10,6 +10,7 @@ import { Card } from '../models/card.model';
 import { MultiLanguage } from '../models/multi-language.model';
 import { HttpClient } from '@angular/common/http';
 import { UtilsService } from './utils.service';
+import { Choice } from '../models/choice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -144,6 +145,54 @@ export class GameStateService {
     this._gameState$.value.deck.library = this._gameState$.value.deck.graveyard;
     this._gameState$.value.deck.graveyard = [];
     this.pickCurrentAndNextCards();
+  }
+
+  applyChoice(choice: Choice): void {
+    this._gameState$.value.mana -= choice.cost;
+
+    for (const effect of choice.effects) {
+      switch(effect.keyword) {
+        case "believer":
+          this._gameState$.value.cult.currentBelievers += effect.value;
+          if (this._gameState$.value.cult.currentBelievers > this._gameState$.value.cult.maxBelievers) this._gameState$.value.cult.currentBelievers = this._gameState$.value.cult.maxBelievers;
+          break;
+        case "glyph":
+          if (this._gameState$.value.ritual.protection >= effect.value) this._gameState$.value.ritual.protection -= effect.value;
+          else {this._gameState$.value.ritual.currentProgression += effect.value - this._gameState$.value.ritual.protection; this._gameState$.value.ritual.protection = 0;}
+          break;
+        case "hideout":
+          this._gameState$.value.cult.hideout += effect.value;
+          break;
+        case "mana":
+          this._gameState$.value.mana += effect.value;
+          break;
+        case "militia":
+          if (this._gameState$.value.cult.hideout >= effect.value) this._gameState$.value.cult.hideout -= effect.value;
+          else {this._gameState$.value.cult.currentBelievers -= effect.value - this._gameState$.value.cult.hideout; this._gameState$.value.cult.hideout = 0;}
+          break;
+        case "protection":
+          this._gameState$.value.ritual.protection += effect.value;
+          break;
+        case "ritual":
+          this._gameState$.value.ritual.currentProgression -= effect.value;
+          if (this._gameState$.value.ritual.currentProgression < 0) this._gameState$.value.ritual.currentProgression = 0;
+          break;
+        default:
+          console.log("!Error on applyChoice()!");
+          console.log(effect);
+      }
+    }
+
+    if (this._gameState$.value.cult.currentBelievers <= 0) this.loseTheGame();
+    if (this._gameState$.value.ritual.currentProgression >= this._gameState$.value.ritual.maxProgression) this.winTheRitual();
+  }
+
+  loseTheGame(): void {
+    //
+  }
+
+  winTheRitual(): void {
+    //
   }
 
 }

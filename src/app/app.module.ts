@@ -28,6 +28,7 @@ import { GameNextCardComponent } from './components/ui/game/game-next-card/game-
 import { GameLibraryComponent } from './components/ui/game/game-library/game-library.component';
 import { GameGraveyardComponent } from './components/ui/game/game-graveyard/game-graveyard.component';
 import { GameFooterComponent } from './components/ui/game/game-footer/game-footer.component';
+import { PopupComponent } from './shared/popups/popups.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { GameFooterComponent } from './components/ui/game/game-footer/game-foote
     GameNextCardComponent,
     GameLibraryComponent,
     GameGraveyardComponent,
-    GameFooterComponent
+    GameFooterComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
