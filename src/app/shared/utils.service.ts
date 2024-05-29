@@ -8,6 +8,7 @@ export class UtilsService {
   constructor() { }
 
   random(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min)) + min;
+    // Min and max can be returned
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 }

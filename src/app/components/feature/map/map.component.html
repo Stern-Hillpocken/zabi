@@ -1,2 +1,2 @@
 <app-map-header [gameState]="gameState"></app-map-header>
-<app-map-enemy-choice [language]="gameState.language" (selectedEnemyEmitter)="onSelectedEnemyReceive($event)"></app-map-enemy-choice>
+<app-map-ritual-choice [language]="gameState.language" [completedRituals]="gameState.completedRituals" (ritualSelectedEmitter)="onSelectedRitualReceive($event)"></app-map-ritual-choice>

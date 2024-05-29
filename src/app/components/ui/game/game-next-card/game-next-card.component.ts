@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { Languages } from 'src/app/types/languages.type';
 
@@ -9,7 +9,12 @@ import { Languages } from 'src/app/types/languages.type';
 })
 export class GameNextCardComponent {
 
-  @Input() language!: Languages;
   @Input() nextCardOwner!: "enemy" | "player" | "empty";
+
+  @Output() displayNextCardOwnerEmitter: EventEmitter<void> = new EventEmitter();
+
+  displayNextCardOwner(): void {
+    if (this.nextCardOwner !== "empty") this.displayNextCardOwnerEmitter.emit();
+  }
 
 }

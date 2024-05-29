@@ -30,4 +30,14 @@ export class GameComponent {
     }
   }
 
+  onDisplayNextCardOwnerReceive(): void {
+    let message = "";
+    if (this.gameState.language === "fr") {
+      message = "Prochaine carte : " + this.gameState.deck.nextCard.owner === "player" ? "joueur" : "ennemi";
+    } else {
+      message = "Next card: " + this.gameState.deck.nextCard.owner;
+    }
+    this.ps.create(new Popup(message, "information"));
+  }
+
 }

@@ -1,0 +1,7 @@
+<div>
+    <button *ngFor="let ritual of rituals" (click)="selectRitual(ritual.name.en)">
+        <p>{{ ritual.name[language] }}</p>
+        <p>{{ ritual.maxProgression }}<app-svg-display path="ritual" size="small"></app-svg-display></p>
+        <p>{{ ritual.rewards }}</p>
+    </button>
+</div>

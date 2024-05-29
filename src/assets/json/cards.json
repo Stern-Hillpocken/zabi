@@ -50,7 +50,7 @@
             },{
                 "cost": 2,
                 "effects": [
-                    {"keyword": "ritual", "value": 1},
+                    {"keyword": "clean", "value": 1},
                     {"keyword": "militia", "value": 2}
                 ]
             }
@@ -65,7 +65,7 @@
                 "cost": 0,
                 "effects": [
                     {"keyword": "protection", "value": 2},
-                    {"keyword": "ritual", "value": 3}
+                    {"keyword": "clean", "value": 3}
                 ]
             },{
                 "cost": 1,

@@ -17,11 +17,12 @@ import { Choice } from '../models/choice.model';
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), new Ritual({"en": "", "fr": ""}, 0, 0, 0), new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), [], new Ritual({"en": "", "fr": ""}, 0, 0, 0, []), [], new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
 
   private leaders!: Leader[];
   private cults!: Cult[];
   private enemies!: Enemy[];
+  private rituals!: Ritual[];
   private cards!: Card[]
 
   constructor(private http: HttpClient, private utils: UtilsService) {
@@ -48,6 +49,13 @@ export class GameStateService {
 
     this.http.get("assets/json/cults.json").subscribe((result: any) => {
       this.cults = result;
+    });
+
+    this.http.get("assets/json/rituals.json").subscribe((result: any) => {
+      this.rituals = [];
+      for (const rit of result) {
+        this.rituals.push(new Ritual(rit.name, 0, rit.value, 0, rit.rewards));
+      }
     });
   }
 
@@ -80,11 +88,21 @@ export class GameStateService {
     }
   }
 
-  setEnemy(name: string): void {
-    for (let jenemy of this.enemies) {
-      if (jenemy.name.en === name) {
-        this._gameState$.value.enemy.name = jenemy.name;
-        this._gameState$.value.enemy.cards = jenemy.cards;
+  generateEnemy(): void {
+    let randomIndex = this.utils.random(0, this.enemies.length-1);
+    while (this._gameState$.value.knownEnemies.includes(this.enemies[randomIndex].name.en)) randomIndex = this.utils.random(0, this.enemies.length-1);
+    
+    this._gameState$.value.enemy = this.enemies[randomIndex];
+    this._gameState$.value.knownEnemies.push(this.enemies[randomIndex].name.en)
+
+    if (this._gameState$.value.knownEnemies.length === this.enemies.length) this._gameState$.value.knownEnemies = [];
+  }
+
+  setRitual(name: string): void {
+    for (const rit of this.rituals) {
+      if (name === rit.name.en) {
+        this._gameState$.value.ritual = rit;
+        this._gameState$.value.completedRituals.push(rit.name.en);
       }
     }
   }
@@ -156,6 +174,10 @@ export class GameStateService {
           this._gameState$.value.cult.currentBelievers += effect.value;
           if (this._gameState$.value.cult.currentBelievers > this._gameState$.value.cult.maxBelievers) this._gameState$.value.cult.currentBelievers = this._gameState$.value.cult.maxBelievers;
           break;
+        case "clean":
+          this._gameState$.value.ritual.currentProgression -= effect.value;
+          if (this._gameState$.value.ritual.currentProgression < 0) this._gameState$.value.ritual.currentProgression = 0;
+          break;
         case "glyph":
           if (this._gameState$.value.ritual.protection >= effect.value) this._gameState$.value.ritual.protection -= effect.value;
           else {this._gameState$.value.ritual.currentProgression += effect.value - this._gameState$.value.ritual.protection; this._gameState$.value.ritual.protection = 0;}
@@ -172,10 +194,6 @@ export class GameStateService {
           break;
         case "protection":
           this._gameState$.value.ritual.protection += effect.value;
-          break;
-        case "ritual":
-          this._gameState$.value.ritual.currentProgression -= effect.value;
-          if (this._gameState$.value.ritual.currentProgression < 0) this._gameState$.value.ritual.currentProgression = 0;
           break;
         default:
           console.log("!Error on applyChoice()!");

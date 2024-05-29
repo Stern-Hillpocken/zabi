@@ -1,6 +1,6 @@
 export class Popup {
     constructor (
         public message: string,
-        public type: "error" | "success"
+        public type: "error" | "information" | "success"
     ) {}
 }

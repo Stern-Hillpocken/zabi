@@ -21,7 +21,6 @@ import { CardDisplayComponent } from './shared/card-display/card-display.compone
 import { SvgDisplayComponent } from './shared/svg-display/svg-display.component';
 import { MapComponent } from './components/feature/map/map.component';
 import { MapHeaderComponent } from './components/ui/map/map-header/map-header.component';
-import { MapEnemyChoiceComponent } from './components/ui/map/map-enemy-choice/map-enemy-choice.component';
 import { GameHeaderComponent } from './components/ui/game/game-header/game-header.component';
 import { GameCurrentCardComponent } from './components/ui/game/game-current-card/game-current-card.component';
 import { GameNextCardComponent } from './components/ui/game/game-next-card/game-next-card.component';
@@ -29,6 +28,7 @@ import { GameLibraryComponent } from './components/ui/game/game-library/game-lib
 import { GameGraveyardComponent } from './components/ui/game/game-graveyard/game-graveyard.component';
 import { GameFooterComponent } from './components/ui/game/game-footer/game-footer.component';
 import { PopupComponent } from './shared/popups/popups.component';
+import { MapRitualChoiceComponent } from './components/ui/map/map-ritual-choice/map-ritual-choice.component';
 
 @NgModule({
   declarations: [
@@ -50,14 +50,14 @@ import { PopupComponent } from './shared/popups/popups.component';
     SvgDisplayComponent,
     MapComponent,
     MapHeaderComponent,
-    MapEnemyChoiceComponent,
     GameHeaderComponent,
     GameCurrentCardComponent,
     GameNextCardComponent,
     GameLibraryComponent,
     GameGraveyardComponent,
     GameFooterComponent,
-    PopupComponent
+    PopupComponent,
+    MapRitualChoiceComponent
   ],
   imports: [
     BrowserModule,

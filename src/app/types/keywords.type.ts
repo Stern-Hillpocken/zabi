@@ -1,1 +1,1 @@
-export type Keywords = "believer" | "glyph" | "hideout" | "mana" | "militia" | "protection" | "ritual";
+export type Keywords = "believer" | "glyph" | "hideout" | "mana" | "militia" | "protection" | "clean";

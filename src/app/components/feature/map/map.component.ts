@@ -17,8 +17,9 @@ export class MapComponent {
     });
   }
 
-  onSelectedEnemyReceive(name: string): void {
-    this.gss.setEnemy(name);
+  onSelectedRitualReceive(name: string): void {
+    this.gss.setRitual(name);
+    this.gss.generateEnemy();
   }
 
 }
