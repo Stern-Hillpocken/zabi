@@ -29,6 +29,7 @@ import { GameGraveyardComponent } from './components/ui/game/game-graveyard/game
 import { GameFooterComponent } from './components/ui/game/game-footer/game-footer.component';
 import { PopupComponent } from './shared/popups/popups.component';
 import { MapRitualChoiceComponent } from './components/ui/map/map-ritual-choice/map-ritual-choice.component';
+import { InformationsComponent } from './shared/informations/informations.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MapRitualChoiceComponent } from './components/ui/map/map-ritual-choice/
     GameGraveyardComponent,
     GameFooterComponent,
     PopupComponent,
-    MapRitualChoiceComponent
+    MapRitualChoiceComponent,
+    InformationsComponent
   ],
   imports: [
     BrowserModule,
