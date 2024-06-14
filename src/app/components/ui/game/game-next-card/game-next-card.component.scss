@@ -1,4 +1,32 @@
-button {
+.next-card-container {
+    position: relative;
+}
+
+.scry {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scry-value-container {
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translate(-50%, 0);
+    height: 16px;
+    width: 100%;
+    overflow: hidden;
+}
+.scry-value {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    background-color: black;
+    border-radius: 8px;
+}
+
+.next-card-owner {
     width: 30vw;
     height: 16px;
 }

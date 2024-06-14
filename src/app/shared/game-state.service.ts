@@ -11,13 +11,14 @@ import { MultiLanguage } from '../models/multi-language.model';
 import { HttpClient } from '@angular/common/http';
 import { UtilsService } from './utils.service';
 import { Choice } from '../models/choice.model';
+import { BattleEffect } from '../models/battleEffects.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), [], new Ritual({"en": "", "fr": ""}, 0, 0, 0, []), [], new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), [], new Ritual({"en": "", "fr": ""}, 0, 0, 0, []), [], new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0, new BattleEffect(0)));
 
   private leaders!: Leader[];
   private cults!: Cult[];
@@ -150,6 +151,7 @@ export class GameStateService {
       this._gameState$.value.deck.nextCard = new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "empty", []);
     } else {
       this.shuffle();
+      //this._gameState$.value.battleEffects.scry ++; //to keep scry when it's apply to empty next card (because empty draw pile)
     }
 
     // Choose next card
@@ -157,6 +159,9 @@ export class GameStateService {
       const randomNextCardIndex = this.utils.random(0, this._gameState$.value.deck.library.length-1);
       this._gameState$.value.deck.nextCard = this._gameState$.value.deck.library[randomNextCardIndex];
     }
+
+    // Decrease battle effects
+    if (this._gameState$.value.battleEffects.scry > 0) this._gameState$.value.battleEffects.scry --;
   }
 
   shuffle(): void {
@@ -194,6 +199,10 @@ export class GameStateService {
           break;
         case "protection":
           this._gameState$.value.ritual.protection += effect.value;
+          break;
+        case "scry":
+          if (this._gameState$.value.battleEffects.scry === 0) this._gameState$.value.battleEffects.scry ++;
+          this._gameState$.value.battleEffects.scry += effect.value;
           break;
         default:
           console.log("!Error on applyChoice()!");

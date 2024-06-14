@@ -9,12 +9,18 @@ import { Languages } from 'src/app/types/languages.type';
 })
 export class GameNextCardComponent {
 
-  @Input() nextCardOwner!: "enemy" | "player" | "empty";
+  @Input() nextCard!: Card;
+  @Input() scryValue!: number;
 
   @Output() displayNextCardOwnerEmitter: EventEmitter<void> = new EventEmitter();
+  @Output() displayNextCardEmitter: EventEmitter<void> = new EventEmitter();
 
   displayNextCardOwner(): void {
-    if (this.nextCardOwner !== "empty") this.displayNextCardOwnerEmitter.emit();
+    if (this.nextCard.owner !== "empty") this.displayNextCardOwnerEmitter.emit();
+  }
+
+  displayNextCard(): void {
+    this.displayNextCardEmitter.emit();
   }
 
 }

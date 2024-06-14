@@ -7,13 +7,12 @@
             {
                 "cost": 0,
                 "effects": [
-                    {"keyword": "believer", "value": 1}
+                    {"keyword": "scry", "value": 1}
                 ]
             },{
                 "cost": 2,
                 "effects": [
-                    {"keyword": "hideout", "value": 2},
-                    {"keyword": "glyph", "value": 2}
+                    {"keyword": "hideout", "value": 2}
                 ]
             }
         ]

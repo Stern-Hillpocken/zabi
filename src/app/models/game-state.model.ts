@@ -1,4 +1,5 @@
 import { Languages } from "../types/languages.type";
+import { BattleEffect } from "./battleEffects.model";
 import { Cult } from "./cult.model";
 import { Deck } from "./deck.model";
 import { Enemy } from "./enemy.model";
@@ -17,6 +18,7 @@ export class GameState {
         public deck: Deck,
         public currentStep: number,
         public maxStep: number,
-        public mana: number
+        public mana: number,
+        public battleEffects: BattleEffect
     ){}
 }

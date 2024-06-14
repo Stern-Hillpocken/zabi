@@ -1,1 +1,7 @@
-<button [ngClass]="nextCardOwner" (click)="displayNextCardOwner()"></button>
+<div class="next-card-container">
+    <button *ngIf="scryValue > 0" class="scry" (click)="displayNextCard()">
+        <app-svg-display path="scry"></app-svg-display>
+        <div *ngIf="scryValue > 1" class="scry-value-container"><span class="scry-value" *ngFor="let i of [].constructor(scryValue)"></span></div>
+    </button>
+    <button class="next-card-owner" [ngClass]="nextCard.owner" (click)="displayNextCardOwner()"></button>
+</div>
