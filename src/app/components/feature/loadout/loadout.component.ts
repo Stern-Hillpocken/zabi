@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Card } from 'src/app/models/card.model';
 import { GameState } from 'src/app/models/game-state.model';
+import { DeckInformationService } from 'src/app/shared/deck-information.service';
 import { GameStateService } from 'src/app/shared/game-state.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class LoadoutComponent {
 
   gameState!: GameState;
 
-  constructor(public gss: GameStateService) {}
+  constructor(public gss: GameStateService, private dis: DeckInformationService) {}
 
   ngOnInit() {
     this.gss.getGameState().subscribe(gs => {
@@ -25,6 +27,10 @@ export class LoadoutComponent {
 
   onSelectedLeaderReceive(englishName: string): void {
     this.gss.setLeader(englishName);
+  }
+
+  onDisplayDeckReceive(cards: Card[]): void {
+    this.dis.set(cards);
   }
 
 }

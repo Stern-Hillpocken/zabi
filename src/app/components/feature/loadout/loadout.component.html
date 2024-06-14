@@ -1,4 +1,8 @@
-<app-loadout-header></app-loadout-header>
-<app-loadout-leaders [gameState]="gameState" (selectedLeaderEmitter)="onSelectedLeaderReceive($event)"></app-loadout-leaders>
+<app-loadout-header [language]="gameState.language"></app-loadout-header>
+<app-loadout-leaders
+    [gameState]="gameState"
+    (selectedLeaderEmitter)="onSelectedLeaderReceive($event)"
+    (dislayDeckEmitter)="onDisplayDeckReceive($event)">
+</app-loadout-leaders>
 <app-loadout-cults [gameState]="gameState" (selectedCultEmitter)="onSelectedCultReceive($event)"></app-loadout-cults>
 <app-loadout-game-stats [gameState]="gameState"></app-loadout-game-stats>

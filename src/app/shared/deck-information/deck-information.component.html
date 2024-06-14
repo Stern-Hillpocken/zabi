@@ -1,0 +1,5 @@
+<div *ngIf="cards.length" class="deck-information-background" (click)="close()">
+    <div class="deck-information-container">
+        <app-card-display *ngFor="let card of cards" [card]="card"></app-card-display>
+    </div>
+</div>

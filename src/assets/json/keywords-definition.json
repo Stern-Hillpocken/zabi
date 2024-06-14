@@ -1,0 +1,17 @@
+{
+    "believer": {"en": "Follower: if you have none you lose.", "fr": "Fidèle : si vous n'en avez plus vous perdez."},
+
+    "clean": {"en": "Cleaning: reduce your tags and therfore your progression to finish the ritual.", "fr": "Nettoyage : Réduit vos tags et donc votre progression pour finir le rituel."},
+
+    "glyph": {"en": "Glyph/Tag: Unlock the city's protection, or if there is not, advances the ritual.", "fr": "Glyphe/Tag : Dévérouille les protections de la cité, ou si il n'y en a pas, fait progresser le rituel."},
+
+    "hideout": {"en": "Hideout: allow you to protect your followers.", "fr": "Cachette : Permet de protéger vos fidèles."},
+
+    "mana": {"en": "Mana/Water: Resource which can be spend to have more choice.", "fr": "Mana/Eau : Ressource qui peut être dépensée pour avoir plus de choix."},
+
+    "militia": {"en": "Militia: Attack your hideout or failing that your followers.", "fr": "Milice : Attaque vos cachettes ou à défaut vos fidèles."},
+
+    "protection": {"en": "Protection: Elements of the city blocking you.", "fr": "Protection : Élèments de la cité vous faisant barrage."},
+
+    "scry": {"en": "Scry: find out what's going to happen.", "fr": "Vision : informez vous sur ce qu'il va arriver."}
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Choice } from 'src/app/models/choice.model';
 import { GameState } from 'src/app/models/game-state.model';
 import { Popup } from 'src/app/models/popup.model';
+import { DeckInformationService } from 'src/app/shared/deck-information.service';
 import { GameStateService } from 'src/app/shared/game-state.service';
 import { PopupService } from 'src/app/shared/popup.service';
 
@@ -14,7 +15,7 @@ export class GameComponent {
 
   gameState!: GameState;
 
-  constructor(private gss: GameStateService, private ps: PopupService) {
+  constructor(private gss: GameStateService, private ps: PopupService, private dis: DeckInformationService) {
     this.gss.getGameState().subscribe((gs: GameState) => {
       this.gameState = gs;
       this.gss.initRitual();
@@ -33,11 +34,23 @@ export class GameComponent {
   onDisplayNextCardOwnerReceive(): void {
     let message = "";
     if (this.gameState.language === "fr") {
-      message = "Prochaine carte : " + this.gameState.deck.nextCard.owner === "player" ? "joueur" : "ennemi";
+      message = "Prochaine carte : " + (this.gameState.deck.nextCard.owner === "player" ? "joueur" : "ennemi");
     } else {
       message = "Next card: " + this.gameState.deck.nextCard.owner;
     }
     this.ps.create(new Popup(message, "information"));
+  }
+
+  onDisplayNextCardReceive(): void {
+    this.dis.set([this.gameState.deck.nextCard]);
+  }
+
+  onDisplayLibraryReceive(): void {
+    this.dis.set(this.gameState.deck.library);
+  }
+
+  onDisplayGraveyardReceive(): void {
+    this.dis.set(this.gameState.deck.graveyard);
   }
 
 }

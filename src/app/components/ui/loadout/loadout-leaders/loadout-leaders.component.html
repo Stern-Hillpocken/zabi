@@ -1,15 +1,15 @@
 <div>
-    <button
-        *ngFor="let leader of leaders"
+    <h2>{{ gameState.language === "fr" ? "Choisissez votre chef.fe" : "Choose your leader"}}</h2>
+    <div *ngFor="let leader of leaders" class="leader-container">
+        <p>{{ leader.name[gameState.language] }}</p>
+        <button (click)="displayDeck(leader.cards)"><app-svg-display path="library"></app-svg-display></button>
+        <br>
+        <button
+        class="big"
         (click)="selectLeader(leader.name[gameState.language])"
         [ngClass]="gameState.leader.name.en === leader.name[gameState.language] ? 'selected' : ''"
-    >
-        {{ leader.name[gameState.language] }}
-        <div style="display: flex; gap: 0.5em;">
-            <app-card-display
-                *ngFor="let card of leader.cards"
-                [card]="card"
-            ></app-card-display>
-        </div>
-    </button>
+        >
+          {{ gameState.language === "fr" ? "Sélectionner" : "Select" }}  
+        </button>
+    </div>
 </div>

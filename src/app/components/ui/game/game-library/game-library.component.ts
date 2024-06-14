@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { Languages } from 'src/app/types/languages.type';
 
@@ -11,11 +11,11 @@ export class GameLibraryComponent {
 
   @Input() library!: Card[];
   @Input() language!: Languages;
-  
-  displayed: boolean = false;
 
+  @Output() displayLibraryEmitter: EventEmitter<void> = new EventEmitter();
+  
   display(): void {
-    this.displayed = !this.displayed;
+    this.displayLibraryEmitter.emit();
   }
 
 }

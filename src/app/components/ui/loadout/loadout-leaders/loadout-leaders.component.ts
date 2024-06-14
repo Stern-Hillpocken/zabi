@@ -15,6 +15,7 @@ export class LoadoutLeadersComponent {
   @Input() gameState!: GameState;
 
   @Output() selectedLeaderEmitter: EventEmitter<string> = new EventEmitter();
+  @Output() dislayDeckEmitter: EventEmitter<Card[]> = new EventEmitter();
 
   leaders: Leader[] = [];
   allCards!: Card[];
@@ -41,6 +42,10 @@ export class LoadoutLeadersComponent {
 
   selectLeader(englishName: string): void {
     this.selectedLeaderEmitter.emit(englishName);
+  }
+
+  displayDeck(cards: Card[]): void {
+    this.dislayDeckEmitter.emit(cards);
   }
 
 }
