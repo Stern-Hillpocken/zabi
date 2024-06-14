@@ -1,18 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+/*@font-face {
+    font-family: "font-base";
+    src: url("assets/fonts/PortLligatSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "font-header";
+    src: url("assets/fonts/Macondo-Regular.ttf");
+}*/
+
 * {
     text-align: center;
+}
+
+body[data-theme='navy']{
+    --color-dominent: #1F2544;
+    --color-complement: #474F7A;
+    --color-accent: #E23E57;
+    --color-light-accent: #88304E;
+    --color-text: white;
+}
+body[data-theme='sunset']{
+    --color-dominent: #00AF91;
+    --color-complement: #007965;
+    --color-accent: #F58634;
+    --color-light-accent: #FFCC29;
+    --color-text: black;
+}
+
+body {
+    background-color: var(--color-dominent);
 }
 
 button {
     border: 2px solid black;
     border-radius: 8px;
+    background-color: var(--color-accent);
+    box-shadow: 0px 2px 2px rgba(0,0,0,0.8);
 }
 
 button:hover {
     cursor: pointer;
 }
 
+button[disabled] {
+    filter: brightness(0.5);
+}
+
 button.big {
     width: 75%;
     font-size: 2em;
+    margin: 0.5em;
+}
+
+h1, h2 {
+    color: var(--color-text);
+}
+h2 {
+    background-color: var(--color-complement);
+    padding: 0.5em;
 }
