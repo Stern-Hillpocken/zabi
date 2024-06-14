@@ -1,17 +1,17 @@
 [
     {
         "name": {"en": "Skarn, the thousand tails scorpion", "fr": "Skarn, le scorpion à mille queues"},
-        "value": 12,
+        "value": 11,
         "rewards": ["believers", "common card", "common card"]
     },
     {
         "name": {"en": "Adriz, the saber-toothed fennec", "fr": "Adriz, le fennec à dents de sabre"},
-        "value": 12,
+        "value": 10,
         "rewards": ["common card", "rare card"]
     },
     {
-        "name": {"en": "Braz, the sprotective armadillo", "fr": "Braz, le tatou protecteur"},
+        "name": {"en": "Braz, the protective armadillo", "fr": "Braz, le tatou protecteur"},
         "value": 12,
-        "rewards": ["rare card", "sacrifice card"]
+        "rewards": ["rare card", "sacrifice"]
     }
 ]
