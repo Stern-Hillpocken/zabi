@@ -1,13 +1,13 @@
- <div class="card">
+ <div class="card" [ngClass]="card.owner">
     <button class="help" (click)="help()">?</button>
-    <h2>{{ card.name[language] }}</h2>
+    <div class="name">{{ card.name[language] }}</div>
     <div class="picture">
         <!--image-->
     </div>
     <div class="banner">
-        <div><span class="cost-value">{{ card.choices[0].cost }}</span><app-svg-display path="mana"></app-svg-display></div>
+        <div class="cost"><span class="cost-value">{{ card.choices[0].cost }}</span><app-svg-display path="mana"></app-svg-display></div>
         <p>{{ card.flavor[language] }}</p>
-        <div><span class="cost-value">{{ card.choices[1].cost }}</span><app-svg-display path="mana"></app-svg-display></div>
+        <div class="cost"><span class="cost-value">{{ card.choices[1].cost }}</span><app-svg-display path="mana"></app-svg-display></div>
     </div>
     <div class="choices">
         <button

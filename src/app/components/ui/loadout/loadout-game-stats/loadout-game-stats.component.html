@@ -1,4 +1,5 @@
 <div>
+    <h2>{{ gameState.language === "fr" ? "Choisissez votre difficulté" : "Choose your difficulty" }}</h2>
     <div>
         <button
             (click)="setStep(3)"
@@ -22,8 +23,9 @@
         <span>{{gameState.maxStep}}</span>
         <button (click)="addStep()">+</button>
     </div>
+    <h2>{{ gameState.language === "fr" ? "Lancer l'aventure" : "Start the adventure" }}</h2>
     <div>
-        <button [disabled]="!canGameRun()" routerLink="/game" class="big">Run</button>
+        <button [disabled]="!canGameRun()" routerLink="/game" class="big">{{ gameState.language === "fr" ? "Lancer" : "Start" }}</button>
         <button (click)="seeInConsole()">See</button>
     </div>
 </div>

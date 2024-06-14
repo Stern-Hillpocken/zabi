@@ -1,7 +1,11 @@
 <div>
+    <h2>{{ language === "fr" ? "Quel rituel pour ce lieu ?" : "What ritual for this place?" }}</h2>
     <button *ngFor="let ritual of rituals" (click)="selectRitual(ritual.name.en)">
         <p>{{ ritual.name[language] }}</p>
         <p>{{ ritual.maxProgression }}<app-svg-display path="ritual" size="small"></app-svg-display></p>
-        <p>{{ ritual.rewards }}</p>
+        <p>{{language === "fr" ? "Récompenses :" : "Rewards:"}}</p>
+        <ul>
+            <li *ngFor="let reward of ritual.rewards">{{ reward }}</li>
+        </ul>
     </button>
 </div>

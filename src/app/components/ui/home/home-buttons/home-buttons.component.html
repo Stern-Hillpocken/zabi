@@ -1,3 +1,21 @@
-<div>
-    <button routerLink="/loadout" class="big">{{ language === "fr" ? "Équipement" : "Loadout" }}</button>
+<div class="card">
+    <button class="help" (click)="help()">?</button>
+    <div class="name">{{ card.name[language] }}</div>
+    <div class="picture">
+        <!--image-->
+    </div>
+    <div class="banner">
+        <div class="cost"><app-svg-display path="mana"></app-svg-display></div>
+        <p>{{ card.flavor[language] }}</p>
+        <div class="cost"><app-svg-display path="mana"></app-svg-display></div>
+    </div>
+    <div class="choices">
+        <button
+            *ngFor="let choice of card.choices"
+            (click)="choiceMade(choice.text.en)"
+            class="choice"
+        >
+            <p>{{ choice.text[language] }}</p>
+        </button>
+    </div>
 </div>

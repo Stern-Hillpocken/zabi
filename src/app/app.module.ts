@@ -30,6 +30,7 @@ import { GameFooterComponent } from './components/ui/game/game-footer/game-foote
 import { PopupComponent } from './shared/popups/popups.component';
 import { MapRitualChoiceComponent } from './components/ui/map/map-ritual-choice/map-ritual-choice.component';
 import { InformationsComponent } from './shared/informations/informations.component';
+import { DeckInformationComponent } from './shared/deck-information/deck-information.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { InformationsComponent } from './shared/informations/informations.compon
     GameFooterComponent,
     PopupComponent,
     MapRitualChoiceComponent,
-    InformationsComponent
+    InformationsComponent,
+    DeckInformationComponent
   ],
   imports: [
     BrowserModule,

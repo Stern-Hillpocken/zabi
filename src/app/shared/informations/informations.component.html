@@ -2,6 +2,9 @@
     <div class="information-container">
         <div class="close" (click)="close()"><app-svg-display path="close"></app-svg-display></div>
         <h2>{{ information.title }}</h2>
-        <p *ngFor="let words of information.content"><app-svg-display [path]="words"></app-svg-display> {{ words }}</p>
+        <div *ngFor="let word of information.content">
+            <app-svg-display [path]="word"></app-svg-display>
+            <p>{{ displayDefinition(word) }}</p>
+        </div>
     </div>
 </div>

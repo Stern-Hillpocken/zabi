@@ -1,1 +1,1 @@
-export type Rewards = "believers" | "uncommon card" | "rare card" | "sacrifice card";
+export type Rewards = "believers" | "uncommon card" | "rare card" | "sacrifice";

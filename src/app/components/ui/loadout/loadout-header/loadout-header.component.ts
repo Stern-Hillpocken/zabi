@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Languages } from 'src/app/types/languages.type';
 
 @Component({
   selector: 'app-loadout-header',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./loadout-header.component.scss']
 })
 export class LoadoutHeaderComponent {
+
+  @Input() language!: Languages;
 
 }

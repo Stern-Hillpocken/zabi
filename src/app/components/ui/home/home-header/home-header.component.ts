@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-home-header',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-header.component.scss']
 })
 export class HomeHeaderComponent {
+
+  @Input() language!: string;
 
 }
