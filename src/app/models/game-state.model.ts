@@ -19,6 +19,7 @@ export class GameState {
         public currentStep: number,
         public maxStep: number,
         public mana: number,
-        public battleEffects: BattleEffect
+        public battleEffects: BattleEffect,
+        public phase: "map" | "ritual" | "rewards"
     ){}
 }

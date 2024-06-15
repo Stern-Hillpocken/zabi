@@ -31,6 +31,10 @@ import { PopupComponent } from './shared/popups/popups.component';
 import { MapRitualChoiceComponent } from './components/ui/map/map-ritual-choice/map-ritual-choice.component';
 import { InformationsComponent } from './shared/informations/informations.component';
 import { DeckInformationComponent } from './shared/deck-information/deck-information.component';
+import { EndPageComponent } from './pages/end-page/end-page.component';
+import { EndComponent } from './components/feature/end/end.component';
+import { EndHeaderComponent } from './components/ui/end/end-header/end-header.component';
+import { EndStatsComponent } from './components/ui/end/end-stats/end-stats.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { DeckInformationComponent } from './shared/deck-information/deck-informa
     PopupComponent,
     MapRitualChoiceComponent,
     InformationsComponent,
-    DeckInformationComponent
+    DeckInformationComponent,
+    EndPageComponent,
+    EndComponent,
+    EndHeaderComponent,
+    EndStatsComponent
   ],
   imports: [
     BrowserModule,

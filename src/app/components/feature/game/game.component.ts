@@ -18,7 +18,6 @@ export class GameComponent {
   constructor(private gss: GameStateService, private ps: PopupService, private dis: DeckInformationService) {
     this.gss.getGameState().subscribe((gs: GameState) => {
       this.gameState = gs;
-      this.gss.initRitual();
     });
   }
 

@@ -31,7 +31,7 @@
                 "cost": 1,
                 "effects": [
                     {"keyword": "hideout", "value": 1},
-                    {"keyword": "glyph", "value": 1}
+                    {"keyword": "glyph", "value": 100}
                 ]
             }
         ]
@@ -69,7 +69,7 @@
             },{
                 "cost": 1,
                 "effects": [
-                    {"keyword": "militia", "value": 1}
+                    {"keyword": "militia", "value": 100}
                 ]
             }
         ]

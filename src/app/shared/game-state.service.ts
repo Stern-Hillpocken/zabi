@@ -12,13 +12,14 @@ import { HttpClient } from '@angular/common/http';
 import { UtilsService } from './utils.service';
 import { Choice } from '../models/choice.model';
 import { BattleEffect } from '../models/battleEffects.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameStateService {
 
-  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), [], new Ritual({"en": "", "fr": ""}, 0, 0, 0, []), [], new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0, new BattleEffect(0)));
+  private readonly _gameState$: BehaviorSubject<GameState> = new BehaviorSubject(new GameState("en", new Leader(new MultiLanguage("", ""), []), new Cult(new MultiLanguage("", ""), 0, 0, 0), new Enemy(new MultiLanguage("", ""), []), [], new Ritual({"en": "", "fr": ""}, 0, 0, 0, []), [], new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []), 0, 0, 0, new BattleEffect(0), "map"));
 
   private leaders!: Leader[];
   private cults!: Cult[];
@@ -26,7 +27,7 @@ export class GameStateService {
   private rituals!: Ritual[];
   private cards!: Card[]
 
-  constructor(private http: HttpClient, private utils: UtilsService) {
+  constructor(private http: HttpClient, private utils: UtilsService, private router: Router) {
     this.http.get("assets/json/cards.json").subscribe((result: any) => {
       this.cards = result;
 
@@ -106,6 +107,8 @@ export class GameStateService {
         this._gameState$.value.completedRituals.push(rit.name.en);
       }
     }
+    this.initRitual();
+    this._gameState$.value.phase = "ritual";
   }
 
   convertEnglishNameToCard(name: string): Card {
@@ -118,7 +121,14 @@ export class GameStateService {
   }
 
   initRitual(): void {
+    // Remove ingame values
+    this._gameState$.value.mana = 0;
+    this._gameState$.value.battleEffects.scry = 0;
+    this._gameState$.value.cult.hideout = 0;
+    this._gameState$.value.ritual.currentProgression = 0;
+    this._gameState$.value.ritual.protection = 0;
     // Add all decks in library
+    while (this._gameState$.value.deck.library.length > 0) this._gameState$.value.deck.library.pop();
     this._gameState$.value.deck.library.push(...this._gameState$.value.leader.cards);
     this._gameState$.value.deck.library.push(...this._gameState$.value.enemy.cards);
     this.pickCurrentAndNextCards();
@@ -210,16 +220,19 @@ export class GameStateService {
       }
     }
 
-    if (this._gameState$.value.cult.currentBelievers <= 0) this.loseTheGame();
+    if (this._gameState$.value.cult.currentBelievers <= 0) this.endOfGame();
     if (this._gameState$.value.ritual.currentProgression >= this._gameState$.value.ritual.maxProgression) this.winTheRitual();
   }
 
-  loseTheGame(): void {
-    //
+  endOfGame(): void {
+    this.router.navigate(['/end']);
   }
 
   winTheRitual(): void {
-    //
+    // Go to the next map location
+    this._gameState$.value.phase = "map";
+    this._gameState$.value.currentStep ++;
+    if (this._gameState$.value.currentStep === this._gameState$.value.maxStep) this.endOfGame();
   }
 
 }

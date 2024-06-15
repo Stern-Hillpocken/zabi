@@ -1,7 +1,7 @@
 <app-game
-    *ngIf="gameState.enemy.name.en !== ''"
+    *ngIf="gameState.phase === 'ritual'"
 ></app-game>
 
 <app-map
-    *ngIf="gameState.enemy.name.en === ''"
+    *ngIf="gameState.phase === 'map'"
 ></app-map>
