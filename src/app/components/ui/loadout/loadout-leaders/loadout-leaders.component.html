@@ -6,8 +6,8 @@
         <br>
         <button
         class="big"
-        (click)="selectLeader(leader.name[gameState.language])"
-        [ngClass]="gameState.leader.name.en === leader.name[gameState.language] ? 'selected' : ''"
+        (click)="selectLeader(leader.name.en)"
+        [ngClass]="gameState.leader.name.en === leader.name.en ? 'selected' : ''"
         >
           {{ gameState.language === "fr" ? "Sélectionner" : "Select" }}  
         </button>

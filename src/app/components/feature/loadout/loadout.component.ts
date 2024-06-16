@@ -16,6 +16,7 @@ export class LoadoutComponent {
   constructor(public gss: GameStateService, private dis: DeckInformationService) {}
 
   ngOnInit() {
+    this.gss.initAll();
     this.gss.getGameState().subscribe(gs => {
       this.gameState = gs;
     });

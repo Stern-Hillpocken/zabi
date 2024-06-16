@@ -65,6 +65,21 @@ export class GameStateService {
     return this._gameState$.asObservable();
   }
 
+  initAll(): void {
+    this._gameState$.value.battleEffects = new BattleEffect(0);
+    this._gameState$.value.completedRituals = [];
+    this._gameState$.value.cult = new Cult(new MultiLanguage("", ""), 0, 0, 0);
+    this._gameState$.value.currentStep = 0;
+    this._gameState$.value.deck = new Deck([], new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), new Card(new MultiLanguage("", ""), new MultiLanguage("", ""), "player", []), []);
+    this._gameState$.value.enemy = new Enemy(new MultiLanguage("", ""), []);
+    this._gameState$.value.knownEnemies = [];
+    this._gameState$.value.leader = new Leader(new MultiLanguage("", ""), []);
+    this._gameState$.value.mana = 0;
+    this._gameState$.value.maxStep = 0;
+    this._gameState$.value.phase = "map";
+    this._gameState$.value.ritual = new Ritual({"en": "", "fr": ""}, 0, 0, 0, []);
+  }
+
   changeLanguage() {
     if (this._gameState$.value.language === "en") this._gameState$.value.language = "fr";
     else this._gameState$.value.language = "en";
@@ -127,8 +142,9 @@ export class GameStateService {
     this._gameState$.value.cult.hideout = 0;
     this._gameState$.value.ritual.currentProgression = 0;
     this._gameState$.value.ritual.protection = 0;
-    // Add all decks in library
     while (this._gameState$.value.deck.library.length > 0) this._gameState$.value.deck.library.pop();
+    while (this._gameState$.value.deck.graveyard.length > 0) this._gameState$.value.deck.graveyard.pop();
+    // Add all decks in library
     this._gameState$.value.deck.library.push(...this._gameState$.value.leader.cards);
     this.generateEnemy();
     for (let i = 0; i < this._gameState$.value.leader.cards.length+this._gameState$.value.currentStep; i++) {
