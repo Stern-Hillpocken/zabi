@@ -1,10 +1,14 @@
 [
     {
         "name": {"en": "Embrose, First signature", "fr": "Embrose, Première signature"},
-        "cards": ["Player Card", "Player Card", "Player Card", "Player Card", "Player Card", "Player Card", "Player Card", "Player Card"]
+        "cards": ["Shimmering signature", "Night up", "Spy drone", "City map", "Discreet exploration", "Total support"]
     },
     {
-        "name": {"en": "Harafi, ...", "fr": "Harafi, ..."},
-        "cards": ["Player Card", "Player n2 Card"]
+        "name": {"en": "Airtic, Street child", "fr": "Airtic, Enfant des rues"},
+        "cards": ["Posters everywhere", "Total support", "Total support", "Night up", "Quiet night"]
+    },
+    {
+        "name": {"en": "Harafi, Knowledge eye", "fr": "Harafi, Oeil du savoir"},
+        "cards": ["Senior contact", "Quiet night", "Snooper informer", "Key to the stars", "Shop", "Dark cold calling"]
     }
 ]

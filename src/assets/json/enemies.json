@@ -1,10 +1,10 @@
 [
     {
         "name": {"en": "Reigan, the suspicious", "fr": "Reigan, le suspicieux"},
-        "cards": ["Enemy Card", "Enemy Card", "Enemy n2 Card"]
+        "cards": ["Reigan himself", "High pressure sand hose", "Incorruptible militia", "Punctual curfew", "Remote controlled scrubber-drone", "Reinforced door"]
     },
     {
-        "name": {"en": "Sylvas, foundry worker", "fr": "Sylas, ouvrier de l'usine"},
-        "cards": ["Enemy n2 Card", "Enemy Card", "Enemy n2 Card"]
+        "name": {"en": "Sylas, foundry worker", "fr": "Sylas, ouvrier de l’usine"},
+        "cards": ["Sylas himself", "Slum guards", "Venal old guard", "Anti-magic sprinkler", "Strict security guard"]
     }
 ]

@@ -1,7 +1,81 @@
 [
     {
-        "name": {"en": "Player Card", "fr": "Carte du jour"},
-        "flavor": {"en": "Player Flavor", "fr": "Carte flavor"},
+        "name": {"en": "Dark cold calling", "fr": "Démarchage obscure"},
+        "flavor": {"en": "Hello, have you heard of our cult?", "fr": "Bonjour, avez-vous entendu parler de notre culte ?"},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "mana", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "believer", "value": 4}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Total support", "fr": "Soutien inconditionnel"},
+        "flavor": {"en": "You always have a way to help the cult...", "fr": "Vous avez toujours moyen d’aider le culte..."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "mana", "value": 1}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "believer", "value": 2}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Discreet exploration", "fr": "Exploration discrète"},
+        "flavor": {"en": "A profitable little tour, as if nothing had happened.", "fr": "Un petit tour fructueux, comme si de rien n’était."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "glyph", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "hideout", "value": 2},
+                    {"keyword": "glyph", "value": 2}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Spy drone", "fr": "Drone espion"},
+        "flavor": {"en": "Once configured, it is your eye and your hand.", "fr": "Une fois configuré, il est votre oeil et votre main."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "scry", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "scry", "value": 2},
+                    {"keyword": "glyph", "value": 3}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Snooper informer", "fr": "Informateur fureteur"},
+        "flavor": {"en": "Always with his grappling hook to access unlikely places!", "fr": "Toujours avec son grappin pour accéder à des endroits improbables !"},
         "owner": "player",
         "choices": [
             {
@@ -12,64 +86,380 @@
             },{
                 "cost": 2,
                 "effects": [
-                    {"keyword": "hideout", "value": 2}
+                    {"keyword": "scry", "value": 4},
+                    {"keyword": "hideout", "value": 6}
                 ]
             }
         ]
     },
     {
-        "name": {"en": "Player n2 Card", "fr": "Carte 2 jour"},
-        "flavor": {"en": "Player 2 Flavor", "fr": "Carte 2 flavor"},
+        "name": {"en": "Slum trade", "fr": "Commerce des bas-fonds"},
+        "flavor": {"en": "A way to be visible and make profit.", "fr": "Un moyen d’être visible et de faire du profit."},
         "owner": "player",
         "choices": [
             {
                 "cost": 0,
                 "effects": [
-                    {"keyword": "mana", "value": 3}
-                ]
-            },{
-                "cost": 1,
-                "effects": [
-                    {"keyword": "hideout", "value": 1},
-                    {"keyword": "glyph", "value": 100}
-                ]
-            }
-        ]
-    },
-    {
-        "name": {"en": "Enemy Card", "fr": "Crt ennemi"},
-        "flavor": {"en": "Enemy Flavor", "fr": "Nmi flavor"},
-        "owner": "enemy",
-        "choices": [
-            {
-                "cost": 0,
-                "effects": [
-                    {"keyword": "protection", "value": 1}
+                    {"keyword": "believer", "value": 2},
+                    {"keyword": "hideout", "value": 1}
                 ]
             },{
                 "cost": 2,
                 "effects": [
-                    {"keyword": "clean", "value": 1},
-                    {"keyword": "militia", "value": 2}
+                    {"keyword": "mana", "value": 4}
                 ]
             }
         ]
     },
     {
-        "name": {"en": "Enemy n2 Card", "fr": "Crt ennemi"},
-        "flavor": {"en": "Enemy 2 Flavor", "fr": "Nmi 2 flavor"},
+        "name": {"en": "City map", "fr": "Plan de la cité"},
+        "flavor": {"en": "For artistic tourism! With or without a guide.", "fr": "Pour un tourisme artistique ! Avec ou sans guide."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "glyph", "value": 3}
+                ]
+            },{
+                "cost": 2,
+                "effects": [
+                    {"keyword": "glyph", "value": 10},
+                    {"keyword": "hideout", "value": 3}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Key to the stars", "fr": "Clé des étoiles"},
+        "flavor": {"en": "Access to roofs, very useful in many situations.", "fr": "Un accès aux toits, bien utile dans maintes situations."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "hideout", "value": 2},
+                    {"keyword": "glyph", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "hideout", "value": 4},
+                    {"keyword": "glyph", "value": 3}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Shimmering signature", "fr": "Signature chatoyante"},
+        "flavor": {"en": "Whatever the art, it is always signed.", "fr": "Quel que soit l’art, il est toujours signé."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "glyph", "value": 5}
+                ]
+            },{
+                "cost": 3,
+                "effects": [
+                    {"keyword": "glyph", "value": 20}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Senior contact", "fr": "Contact haut placé"},
+        "flavor": {"en": "Who said you shouldn’t do politics?", "fr": "Qui a dit qu’il ne fallait pas faire de politique ?"},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "scry", "value": 2}
+                ]
+            },{
+                "cost": 3,
+                "effects": [
+                    {"keyword": "scry", "value": 8}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Posters everywhere", "fr": "Affiches partout"},
+        "flavor": {"en": "Here, and there, and also there...", "fr": "Ici, et là, et également là..."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "mana", "value": 1},
+                    {"keyword": "believer", "value": 2}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "glyph", "value": 3},
+                    {"keyword": "believer", "value": 2}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Night up", "fr": "Nuit debout"},
+        "flavor": {"en": "Have sweet, colorful dreams...", "fr": "Faites de beaux rêves colorés..."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "mana", "value": 0}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "glyph", "value": 3}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Quiet night", "fr": "Nuit tranquille"},
+        "flavor": {"en": "You can sleep soundly.", "fr": "Vous pouvez dormir sur vos deux oreilles."},
+        "owner": "player",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "mana", "value": 0}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "hideout", "value": 3}
+                ]
+            }
+        ]
+    },
+
+
+
+
+
+
+
+
+    {
+        "name": {"en": "Slum guards", "fr": "Guardes des bas-fonds"},
+        "flavor": {"en": "Ah well, that’s it! I just found a vial of water, it must be yours, right?", "fr": "Ah bah ça alors ! Je viens de trouver une fiole d’eau, ça doit être la vôtre, nan ?"},
         "owner": "enemy",
         "choices": [
             {
                 "cost": 0,
                 "effects": [
-                    {"keyword": "protection", "value": 2},
-                    {"keyword": "clean", "value": 3}
+                    {"keyword": "militia", "value": 2}
                 ]
             },{
                 "cost": 1,
                 "effects": [
-                    {"keyword": "militia", "value": 100}
+                    {"keyword": "militia", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Venal old guard", "fr": "Vieux garde vénal"},
+        "flavor": {"en": "He could well annoy you before he leaves the armed forces.", "fr": "Il pourrait bien vous embêter avant son départ des forces armées."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 3},
+                    {"keyword": "protection", "value": 3}
+                ]
+            },{
+                "cost": 3,
+                "effects": [
+                    {"keyword": "militia", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Incorruptible militia", "fr": "Milice incorruptible"},
+        "flavor": {"en": "There is no escaping that one.", "fr": "Impossible d’échapper à celle là."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 1},
+                    {"keyword": "protection", "value": 1}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 1},
+                    {"keyword": "clean", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "High pressure sand hose", "fr": "Tuyau à sable haute pression"},
+        "flavor": {"en": "Mounted on an armored vehicule, it blocks access.", "fr": "Monté sur un blindé, il bloque l'acces."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "clean", "value": 3},
+                    {"keyword": "protection", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "clean", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Reinforced door", "fr": "Porte blindée"},
+        "flavor": {"en": "You just need to talk to the right people.", "fr": "Il suffit de parler aux bonnes personnes."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "protection", "value": 3},
+                    {"keyword": "militia", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "protection", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Strict security guard", "fr": "Vigile strict"},
+        "flavor": {"en": "Make no mistake about their well-dressed suit, a reinforced vest is hidden underneath.", "fr": "Ne vous méprenez pas sur son costard tiré à quatre épingles, un gilet renforcé est caché en dessous."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "protection", "value": 3},
+                    {"keyword": "clean", "value": 3}
+                ]
+            },{
+                "cost": 2,
+                "effects": [
+                    {"keyword": "protection", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Punctual curfew", "fr": "Couvre-feu ponctuel"},
+        "flavor": {"en": "No going out tonight, especially since you risk being attacked.", "fr": "Pas de sortie cette nuit, d’autant plus que vous risquez de vous faire attaquer."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 3},
+                    {"keyword": "protection", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "militia", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Remote controlled scrubber-drone", "fr": "Drone-éponge téléguidé"},
+        "flavor": {"en": "In addition to erasing us, it can locate us with its infrared camera.", "fr": "En plus de nous effacer, il peut nous localiser avec sa caméra infra-rouge."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "clean", "value": 3},
+                    {"keyword": "militia", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "clean", "value": 1}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Anti-magic sprinkler", "fr": "Arroseur anti-magie"},
+        "flavor": {"en": "Their pleasure? Destroy the works of art, so that everything is uniform and (more or less) immaculate white.", "fr": "Leur plaisir ? Détruire les oeuvres d’art, pour que tout soit uniforme et d'un blanc (plus ou moins) immaculé."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 3},
+                    {"keyword": "clean", "value": 1}
+                ]
+            },{
+                "cost": 1,
+                "effects": [
+                    {"keyword": "militia", "value": 1}
+                ]
+            }
+        ]
+    },
+
+
+
+    {
+        "name": {"en": "Sylas himself", "fr": "Sylas lui-même"},
+        "flavor": {"en": "He came out of the furnaces and the armory to show what he is capable of!", "fr": "Il est sorti des fourneaux et de l'armurerie pour montrer de quel bois il se chauffe !"},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 6},
+                    {"keyword": "protection", "value": 3}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "militia", "value": 8},
+                    {"keyword": "clean", "value": 3}
+                ]
+            }
+        ]
+    },
+    {
+        "name": {"en": "Reigan himself", "fr": "Reigan lui-même"},
+        "flavor": {"en": "Worse than a purple leech, he never lets go of his prey. He wants to know everything and is constantly looking over your shoulder.", "fr": "Pire qu’une sangsue pourpre, il ne lâche jamais sa proie. Il veut tout savoir et regarde constamment au dessus de votre épaule."},
+        "owner": "enemy",
+        "choices": [
+            {
+                "cost": 0,
+                "effects": [
+                    {"keyword": "protection", "value": 6},
+                    {"keyword": "clean", "value": 3}
+                ]
+            },{
+                "cost": 0,
+                "effects": [
+                    {"keyword": "protection", "value": 6},
+                    {"keyword": "militia", "value": 3}
                 ]
             }
         ]
