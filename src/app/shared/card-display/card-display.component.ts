@@ -34,7 +34,7 @@ export class CardDisplayComponent {
     let content: string [] = [];
     for (let side = 0; side < 2; side ++) {
       for (let k = 0; k < this.card.choices[side].effects.length; k++) {
-        content.push(this.card.choices[side].effects[k].keyword);
+        if (!content.includes(this.card.choices[side].effects[k].keyword)) content.push(this.card.choices[side].effects[k].keyword);
       }
     }
     this.infoServ.set(new Information(this.language === "fr" ? "Mots clés de la carte" : "Card's keywords", content));

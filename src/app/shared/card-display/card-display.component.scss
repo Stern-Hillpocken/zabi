@@ -17,6 +17,7 @@
 }
 
 .name {
+    text-align: center;
     font-size: 1.5em;
     padding: 0.5em;
     color: black;
@@ -38,7 +39,9 @@
         position: relative;
         border-top: 2px solid black;
     }
-    p {
+    .flavor {
+        text-align: center;
+        font-size: 0.8em;
         margin: 0;
         border: 2px solid black;
         width: 100%;
@@ -52,6 +55,9 @@
 .cost {
     background-color: var(--color-accent);
     border-bottom: 2px dashed black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cost-value {

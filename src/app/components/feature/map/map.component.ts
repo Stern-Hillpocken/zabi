@@ -19,7 +19,6 @@ export class MapComponent {
 
   onSelectedRitualReceive(name: string): void {
     this.gss.setRitual(name);
-    this.gss.generateEnemy();
   }
 
 }

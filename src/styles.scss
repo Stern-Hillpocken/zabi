@@ -10,7 +10,7 @@
 }*/
 
 * {
-    text-align: center;
+    //text-align: center;
 }
 
 body[data-theme='navy']{
@@ -54,6 +54,7 @@ button.big {
 }
 
 h1, h2 {
+    text-align: center;
     color: var(--color-text);
 }
 h2 {

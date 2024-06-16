@@ -130,6 +130,7 @@ export class GameStateService {
     // Add all decks in library
     while (this._gameState$.value.deck.library.length > 0) this._gameState$.value.deck.library.pop();
     this._gameState$.value.deck.library.push(...this._gameState$.value.leader.cards);
+    this.generateEnemy();
     this._gameState$.value.deck.library.push(...this._gameState$.value.enemy.cards);
     this.pickCurrentAndNextCards();
   }
