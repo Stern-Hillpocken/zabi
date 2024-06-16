@@ -131,7 +131,11 @@ export class GameStateService {
     while (this._gameState$.value.deck.library.length > 0) this._gameState$.value.deck.library.pop();
     this._gameState$.value.deck.library.push(...this._gameState$.value.leader.cards);
     this.generateEnemy();
-    this._gameState$.value.deck.library.push(...this._gameState$.value.enemy.cards);
+    for (let i = 0; i < this._gameState$.value.leader.cards.length+this._gameState$.value.currentStep; i++) {
+      let correctI: number = i;
+      while (correctI >= this._gameState$.value.enemy.cards.length) correctI = correctI - this._gameState$.value.enemy.cards.length + 1;
+      this._gameState$.value.deck.library.push(this._gameState$.value.enemy.cards[correctI]);
+    }
     this.pickCurrentAndNextCards();
   }
 

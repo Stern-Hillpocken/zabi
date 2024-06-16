@@ -35,6 +35,7 @@ import { EndPageComponent } from './pages/end-page/end-page.component';
 import { EndComponent } from './components/feature/end/end.component';
 import { EndHeaderComponent } from './components/ui/end/end-header/end-header.component';
 import { EndStatsComponent } from './components/ui/end/end-stats/end-stats.component';
+import { HomeFooterComponent } from './components/ui/home/home-footer/home-footer.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { EndStatsComponent } from './components/ui/end/end-stats/end-stats.compo
     EndPageComponent,
     EndComponent,
     EndHeaderComponent,
-    EndStatsComponent
+    EndStatsComponent,
+    HomeFooterComponent
   ],
   imports: [
     BrowserModule,
